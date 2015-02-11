@@ -1,0 +1,26 @@
+package org.drools.example.api.defaultkiesession
+
+import com.sample.MessageReceived
+
+global java.io.PrintStream out
+
+
+declare MessageReceived
+	@role (event)
+	@expires (1s)
+end
+
+rule "rule 1" 
+no-loop true
+lock-on-active true
+when
+	 $m : MessageReceived() 
+	accumulate (
+		$mg : MessageReceived ( $mg.msg == "aa" && $m.msisdn == $mg.msisdn) over window:time(10s); 
+		$cnt : count(1) ; 
+		$cnt == 2 
+	)
+then
+   	out.println( $m.getMsg() + " " + $m.getMsisdn() + " "+ $cnt);
+//   	out.println($cnt);
+end

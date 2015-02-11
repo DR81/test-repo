@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kmodule xmlns="http://jboss.org/kie/6.0.0/kmodule">
+<!-- 
+	<kbase name="kBase1" default="true" eventProcessingMode="STREAM"
+		equalsBehavior="equality" declarativeAgenda="enabled"
+		packages="org.drools.example.api.defaultkiesession">
+
+		<ksession name="kSession1" type="stateless" default="true"
+			beliefSystem="jtms">
+
+	</kbase>
+	-->
+</kmodule>

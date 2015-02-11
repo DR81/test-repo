@@ -1,0 +1,158 @@
+package org.drools.example.api.defaultkiesession
+
+import com.sample.MessageReceived
+
+global java.io.PrintStream out
+
+
+declare MessageReceived
+	@role (event)
+	@expires (10000s)
+end
+
+
+rule "rule 0" 
+//no-loop true
+//lock-on-active true
+when
+	 $m : MessageReceived($m.getMsg() == "0") over window:length(1)
+	accumulate (
+		MessageReceived (($m.getMsg() == "0") && msisdn == $m.msisdn ) over window:time(10000s); 
+		$cnt : count(1) ; 
+		( $cnt % 2 ) == 0
+	)
+then
+ //  	out.println("accumulated ("+ $cnt + ") " + $m.getMsg() + " " + $m.getMsisdn());
+	retract($m)
+end
+
+
+rule "rule 1" 
+when
+	 $m : MessageReceived($m.getMsg() == "1") over window:length(1)
+	accumulate (
+		MessageReceived (($m.getMsg() == "1") && msisdn == $m.msisdn ) over window:time(10000s); 
+		$cnt : count(1) ; 
+		( $cnt % 2 ) == 0
+	)
+then
+ //  	out.println("accumulated ("+ $cnt + ") " + $m.getMsg() + " " + $m.getMsisdn());
+	retract($m)
+end
+
+rule "rule 2" 
+when
+	 $m : MessageReceived($m.getMsg() == "2" ) over window:length(1)
+	accumulate (
+		MessageReceived (($m.getMsg() == "2") && msisdn == $m.msisdn ) over window:time(10000s); 
+		$cnt : count(1) ; 
+		( $cnt % 2 ) == 0
+	)
+then
+ //  	out.println("accumulated ("+ $cnt + ") " + $m.getMsg() + " " + $m.getMsisdn());
+	retract($m)
+end
+
+rule "rule 3" 
+when
+	 $m : MessageReceived($m.getMsg() == "3") over window:length(1)
+	accumulate (
+		MessageReceived (($m.getMsg() == "3") && msisdn == $m.msisdn ) over window:time(10000s); 
+		$cnt : count(1) ; 
+		( $cnt % 2 ) == 0
+	)
+then
+ //  	out.println("accumulated ("+ $cnt + ") " + $m.getMsg() + " " + $m.getMsisdn());
+	retract($m)
+end
+
+rule "rule 4" 
+when
+	 $m : MessageReceived($m.getMsg() == "4" ) over window:length(1)
+	accumulate (
+		MessageReceived (($m.getMsg() == "4") && msisdn == $m.msisdn ) over window:time(10000s); 
+		$cnt : count(1) ; 
+		( $cnt % 2 ) == 0
+	)
+then
+ //  	out.println("accumulated ("+ $cnt + ") " + $m.getMsg() + " " + $m.getMsisdn());
+	retract($m)
+end
+
+rule "rule 5" 
+when
+	 $m : MessageReceived($m.getMsg() == "5") over window:length(1)
+	accumulate (
+		MessageReceived (($m.getMsg() == "5") && msisdn == $m.msisdn ) over window:time(10000s); 
+		$cnt : count(1) ; 
+		( $cnt % 2 ) == 0
+	)
+then
+ //  	out.println("accumulated ("+ $cnt + ") " + $m.getMsg() + " " + $m.getMsisdn());
+	retract($m)
+end
+
+rule "rule 6" 
+when
+	 $m : MessageReceived($m.getMsg() == "6") over window:length(1)
+	accumulate (
+		MessageReceived (($m.getMsg() == "6") && msisdn == $m.msisdn ) over window:time(10000s); 
+		$cnt : count(1) ; 
+		( $cnt % 2 ) == 0
+	)
+then
+ //  	out.println("accumulated ("+ $cnt + ") " + $m.getMsg() + " " + $m.getMsisdn());
+	retract($m)
+end
+
+rule "rule 7" 
+when
+	 $m : MessageReceived($m.getMsg() == "7") over window:length(1)
+	accumulate (
+		MessageReceived (($m.getMsg() == "7") && msisdn == $m.msisdn ) over window:time(10000s); 
+		$cnt : count(1) ; 
+		( $cnt % 2 ) == 0
+	)
+then
+ //  	out.println("accumulated ("+ $cnt + ") " + $m.getMsg() + " " + $m.getMsisdn());
+	retract($m)
+end
+
+rule "rule 8" 
+when
+	 $m : MessageReceived($m.getMsg() == "8") over window:length(1)
+	accumulate (
+		MessageReceived (($m.getMsg() == "8") && msisdn == $m.msisdn ) over window:time(10000s); 
+		$cnt : count(1) ; 
+		( $cnt % 2 ) == 0
+	)
+then
+ //  	out.println("accumulated ("+ $cnt + ") " + $m.getMsg() + " " + $m.getMsisdn());
+	retract($m)
+end
+
+rule "rule 9" 
+when
+	 $m : MessageReceived($m.getMsg() == "9") over window:length(1)
+	accumulate (
+		MessageReceived (($m.getMsg() == "9") && msisdn == $m.msisdn ) over window:time(10000s); 
+		$cnt : count(1) ; 
+		( $cnt % 2 ) == 0
+	)
+then
+ //  	out.println("accumulated ("+ $cnt + ") " + $m.getMsg() + " " + $m.getMsisdn());
+	retract($m)
+end
+
+rule "rule 10" 
+when
+	 $m : MessageReceived($m.getMsg() == "10") over window:length(1)
+	accumulate (
+		MessageReceived (($m.getMsg() == "10") && msisdn == $m.msisdn ) over window:time(10000s); 
+		$cnt : count(1) ; 
+		( $cnt % 2 ) == 0
+	)
+then
+ //  	out.println("accumulated ("+ $cnt + ") " + $m.getMsg() + " " + $m.getMsisdn());
+	retract($m)
+end
